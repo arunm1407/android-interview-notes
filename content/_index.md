@@ -17,7 +17,7 @@ type: docs
 
 <div class="stats-row">
   <div class="stat-item">
-    <span class="stat-number">9</span>
+    <span class="stat-number">10</span>
     <span class="stat-label">Sections</span>
   </div>
   <div class="stat-item">
@@ -80,6 +80,18 @@ type: docs
     <span class="card-tag">Compose</span>
     <span class="card-tag">Coroutines</span>
     <span class="card-tag">Gradle</span>
+  </div>
+</a>
+
+<a class="section-card" href="{{< relref "/docs/compose-internals" >}}">
+  <span class="card-icon">⚙️</span>
+  <div class="card-title">Compose Internals Mastery</div>
+  <p class="card-desc">Full book depth — change list, Applier, Recomposer states, LookaheadLayout, MVCC snapshots, semantics trees, Vector/DOM Appliers.</p>
+  <div class="card-meta">
+    <span class="card-tag">Compiler</span>
+    <span class="card-tag">Slot Table</span>
+    <span class="card-tag">Snapshots</span>
+    <span class="card-tag">Applier</span>
   </div>
 </a>
 

@@ -6,7 +6,7 @@ weight: 9
 # Compose Mastery — The Complete Reference
 
 > [!NOTE]
-> **10 parts, 40+ topics.** Best practices, anti-patterns, advanced patterns, animations, performance, architecture at scale, interop, theming, accessibility, and production war stories. Assumes you already know Compose basics — this is the "senior to staff" layer.
+> **10 parts, 40+ topics.** Best practices, anti-patterns, advanced patterns, animations, performance, architecture at scale, interop, theming, accessibility, and production war stories. Assumes you already know Compose basics — this is the "senior to staff" layer. For the underlying engine (compiler, runtime, snapshots), start with [Compose Internals Mastery]({{< relref "/docs/compose-internals" >}}).
 
 ---
 
