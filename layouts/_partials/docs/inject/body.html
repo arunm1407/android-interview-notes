@@ -1,0 +1,6 @@
+{{- $path := .RelPermalink -}}
+{{- if or (in $path "dsa-checklist") (in $path "dsa-roadmap") (in $path "neetcode-crossref") -}}
+  {{- with resources.Get "progress-tracker.js" | resources.Minify | resources.Fingerprint -}}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end -}}
+{{- end -}}

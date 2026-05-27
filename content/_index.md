@@ -25,8 +25,8 @@ type: docs
     <span class="stat-label">Case Studies</span>
   </div>
   <div class="stat-item">
-    <span class="stat-number">30</span>
-    <span class="stat-label">Coding Problems</span>
+    <span class="stat-number">120+</span>
+    <span class="stat-label">LeetCode Problems</span>
   </div>
   <div class="stat-item">
     <span class="stat-number">50+</span>
@@ -118,6 +118,17 @@ type: docs
   </div>
 </a>
 
+<a class="section-card" href="{{< relref "/docs/dsa-roadmap" >}}">
+  <span class="card-icon">🗺️</span>
+  <div class="card-title">DSA Roadmap (Google L4)</div>
+  <p class="card-desc">14 patterns · 120+ LeetCode links · 80 must-do ⭐ · 12-week schedule · printable checklist · NeetCode 150 map.</p>
+  <div class="card-meta">
+    <span class="card-tag">LeetCode</span>
+    <span class="card-tag">Patterns</span>
+    <span class="card-tag">12-Week Plan</span>
+  </div>
+</a>
+
 <a class="section-card" href="{{< relref "/docs/coding-patterns" >}}">
   <span class="card-icon">💻</span>
   <div class="card-title">Coding Patterns</div>
@@ -155,4 +166,4 @@ type: docs
 
 ---
 
-> **How to use this site:** Start with [System Design]({{< relref "/docs/system-design" >}}) for a broad overview, then dive into specific topics. Each section is self-contained — read in any order. Code examples are in Kotlin and target modern Android (Jetpack Compose, Coroutines, Room).
+> **How to use this site:** Start with [DSA Roadmap]({{< relref "/docs/dsa-roadmap" >}}) for Google L4 coding prep (patterns + LeetCode links), [System Design]({{< relref "/docs/system-design" >}}) for mobile architecture, then dive into specific topics. Each section is self-contained — read in any order. Code examples are in Kotlin and target modern Android (Jetpack Compose, Coroutines, Room).
