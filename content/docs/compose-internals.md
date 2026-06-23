@@ -1,6 +1,6 @@
 ---
 title: "Compose Internals Mastery"
-weight: 7
+weight: 20
 ---
 
 # Compose Internals Mastery

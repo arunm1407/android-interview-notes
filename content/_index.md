@@ -17,7 +17,7 @@ type: docs
 
 <div class="stats-row">
   <div class="stat-item">
-    <span class="stat-number">12</span>
+    <span class="stat-number">17</span>
     <span class="stat-label">Sections</span>
   </div>
   <div class="stat-item">
@@ -36,6 +36,9 @@ type: docs
 
 ## Sections
 
+<div class="section-category">
+<h3>Android Interview</h3>
+<p class="section-category-desc">Architecture, patterns, case studies, coding, testing, and behavioral prep.</p>
 <div class="section-grid">
 
 <a class="section-card" href="{{< relref "/docs/system-design" >}}">
@@ -47,6 +50,17 @@ type: docs
     <span class="card-tag">MVI</span>
     <span class="card-tag">Offline-First</span>
     <span class="card-tag">Pagination</span>
+  </div>
+</a>
+
+<a class="section-card" href="{{< relref "/docs/mobile-system-design" >}}">
+  <span class="card-icon">📐</span>
+  <div class="card-title">Mobile System Design</div>
+  <p class="card-desc">Full interview framework — requirements, API design, caching, offline-first, pagination, exercises, and common mistakes.</p>
+  <div class="card-meta">
+    <span class="card-tag">Interview</span>
+    <span class="card-tag">API</span>
+    <span class="card-tag">Exercises</span>
   </div>
 </a>
 
@@ -75,57 +89,11 @@ type: docs
 <a class="section-card" href="{{< relref "/docs/deep-dives" >}}">
   <span class="card-icon">🔬</span>
   <div class="card-title">Framework Deep Dives</div>
-  <p class="card-desc">Compose internals, Coroutine machinery, Gradle build system, Android framework (Binder, Handler, View pipeline).</p>
+  <p class="card-desc">Coroutine machinery, Gradle build system, Android framework (Binder, Handler, View pipeline).</p>
   <div class="card-meta">
-    <span class="card-tag">Compose</span>
     <span class="card-tag">Coroutines</span>
     <span class="card-tag">Gradle</span>
-  </div>
-</a>
-
-<a class="section-card" href="{{< relref "/docs/compose-internals" >}}">
-  <span class="card-icon">⚙️</span>
-  <div class="card-title">Compose Internals Mastery</div>
-  <p class="card-desc">Full book depth — change list, Applier, Recomposer states, LookaheadLayout, MVCC snapshots, semantics trees, Vector/DOM Appliers.</p>
-  <div class="card-meta">
-    <span class="card-tag">Compiler</span>
-    <span class="card-tag">Slot Table</span>
-    <span class="card-tag">Snapshots</span>
-    <span class="card-tag">Applier</span>
-  </div>
-</a>
-
-<a class="section-card" href="{{< relref "/docs/compose-rendering" >}}">
-  <span class="card-icon">🖼️</span>
-  <div class="card-title">Compose Rendering: List Screen</div>
-  <p class="card-desc">End-to-end walkthrough of how LazyColumn draws — SubcomposeLayout, constraint propagation, text measurement, relayout on text size change, scroll-driven recomposition.</p>
-  <div class="card-meta">
-    <span class="card-tag">LazyColumn</span>
-    <span class="card-tag">SubcomposeLayout</span>
-    <span class="card-tag">Relayout</span>
-  </div>
-</a>
-
-<a class="section-card" href="{{< relref "/docs/compose-mastery" >}}">
-  <span class="card-icon">🧠</span>
-  <div class="card-title">Compose Mastery</div>
-  <p class="card-desc">40+ topics — best practices, anti-patterns, stability, state architecture, animations, performance profiling, navigation, interop, theming, accessibility, production war stories.</p>
-  <div class="card-meta">
-    <span class="card-tag">Best Practices</span>
-    <span class="card-tag">Animation</span>
-    <span class="card-tag">Performance</span>
-    <span class="card-tag">A11y</span>
-  </div>
-</a>
-
-<a class="section-card" href="{{< relref "/docs/dsa-roadmap" >}}">
-  <span class="card-icon">🗺️</span>
-  <div class="card-title">DSA Roadmap (Google L4)</div>
-  <p class="card-desc">14 patterns · 120+ LeetCode links · 80 must-do ⭐ · 12-week schedule · printable checklist · NeetCode 150 map.</p>
-  <div class="card-meta">
-    <span class="card-tag">LeetCode</span>
-    <span class="card-tag">Patterns</span>
-    <span class="card-tag">12-Week Plan</span>
+    <span class="card-tag">Framework</span>
   </div>
 </a>
 
@@ -147,7 +115,7 @@ type: docs
   <div class="card-meta">
     <span class="card-tag">JUnit 5</span>
     <span class="card-tag">Turbine</span>
-    <span class="card-tag">Compose</span>
+    <span class="card-tag">Compose Test</span>
   </div>
 </a>
 
@@ -162,17 +130,103 @@ type: docs
   </div>
 </a>
 
-<a class="section-card" href="{{< relref "/docs/tosca" >}}">
-  <span class="card-icon">🎯</span>
-  <div class="card-title">Tricentis Tosca Mastery</div>
-  <p class="card-desc">11-part deep guide — noob to staff. 14 diagrams, 8 hands-on labs, printable checklist, 80+ interview Q&A.</p>
+</div>
+</div>
+
+<div class="section-category">
+<h3>Jetpack Compose</h3>
+<p class="section-category-desc">Compiler, runtime, rendering, and production Compose mastery — separate from general Android prep.</p>
+<div class="section-grid">
+
+<a class="section-card" href="{{< relref "/docs/compose-internals" >}}">
+  <span class="card-icon">⚙️</span>
+  <div class="card-title">Compose Internals Mastery</div>
+  <p class="card-desc">Full book depth — change list, Applier, Recomposer states, LookaheadLayout, MVCC snapshots, semantics trees, Vector/DOM Appliers.</p>
   <div class="card-meta">
-    <span class="card-tag">Exercises</span>
-    <span class="card-tag">Checklist</span>
-    <span class="card-tag">Diagrams</span>
-    <span class="card-tag">CI/CD</span>
+    <span class="card-tag">Compiler</span>
+    <span class="card-tag">Slot Table</span>
+    <span class="card-tag">Snapshots</span>
   </div>
 </a>
+
+<a class="section-card" href="{{< relref "/docs/compose-rendering" >}}">
+  <span class="card-icon">🖼️</span>
+  <div class="card-title">Compose Rendering: List Screen</div>
+  <p class="card-desc">End-to-end walkthrough of how LazyColumn draws — SubcomposeLayout, constraint propagation, text measurement, scroll-driven recomposition.</p>
+  <div class="card-meta">
+    <span class="card-tag">LazyColumn</span>
+    <span class="card-tag">SubcomposeLayout</span>
+    <span class="card-tag">Relayout</span>
+  </div>
+</a>
+
+<a class="section-card" href="{{< relref "/docs/compose-mastery" >}}">
+  <span class="card-icon">🧠</span>
+  <div class="card-title">Compose Mastery</div>
+  <p class="card-desc">40+ topics — best practices, anti-patterns, stability, state architecture, animations, performance, navigation, interop, theming, accessibility.</p>
+  <div class="card-meta">
+    <span class="card-tag">Best Practices</span>
+    <span class="card-tag">Animation</span>
+    <span class="card-tag">Performance</span>
+  </div>
+</a>
+
+</div>
+</div>
+
+<div class="section-category">
+<h3>DSA Prep (Google L4)</h3>
+<p class="section-category-desc">Patterns, LeetCode roadmap, printable checklist, and study streaks.</p>
+<div class="section-grid">
+
+<a class="section-card" href="{{< relref "/docs/dsa-roadmap" >}}">
+  <span class="card-icon">🗺️</span>
+  <div class="card-title">DSA Roadmap</div>
+  <p class="card-desc">14 patterns · 120+ LeetCode links · 80 must-do ⭐ · 12-week schedule · NeetCode 150 map.</p>
+  <div class="card-meta">
+    <span class="card-tag">LeetCode</span>
+    <span class="card-tag">Patterns</span>
+    <span class="card-tag">12-Week Plan</span>
+  </div>
+</a>
+
+<a class="section-card" href="{{< relref "/docs/dsa-checklist" >}}">
+  <span class="card-icon">✅</span>
+  <div class="card-title">DSA Printable Checklist</div>
+  <p class="card-desc">Interactive 80-problem checklist with dual-pass tracking — saves progress in your browser.</p>
+  <div class="card-meta">
+    <span class="card-tag">Printable</span>
+    <span class="card-tag">Tracking</span>
+  </div>
+</a>
+
+<a class="section-card" href="{{< relref "/docs/neetcode-crossref" >}}">
+  <span class="card-icon">🔗</span>
+  <div class="card-title">NeetCode 150 Cross-Reference</div>
+  <p class="card-desc">Map NeetCode 150 problems to this site's patterns and roadmap sections.</p>
+  <div class="card-meta">
+    <span class="card-tag">NeetCode</span>
+    <span class="card-tag">Map</span>
+  </div>
+</a>
+
+<a class="section-card" href="{{< relref "/docs/streak-board" >}}">
+  <span class="card-icon">🔥</span>
+  <div class="card-title">Streak Board</div>
+  <p class="card-desc">LeetCode-style daily streaks with a study partner — 100% local, no backend.</p>
+  <div class="card-meta">
+    <span class="card-tag">Streaks</span>
+    <span class="card-tag">Local</span>
+  </div>
+</a>
+
+</div>
+</div>
+
+<div class="section-category">
+<h3>SAP & Tosca Automation</h3>
+<p class="section-category-desc">SAP domain knowledge and Tricentis Tosca tool mastery — separate from Android interview content.</p>
+<div class="section-grid">
 
 <a class="section-card" href="{{< relref "/docs/sap-automation" >}}">
   <span class="card-icon">🏭</span>
@@ -182,10 +236,21 @@ type: docs
     <span class="card-tag">SAP SD</span>
     <span class="card-tag">SAP MM</span>
     <span class="card-tag">HANA</span>
-    <span class="card-tag">OTC/PTP</span>
   </div>
 </a>
 
+<a class="section-card" href="{{< relref "/docs/tosca" >}}">
+  <span class="card-icon">🎯</span>
+  <div class="card-title">Tricentis Tosca Mastery</div>
+  <p class="card-desc">11-part guide — noob to staff. 14 diagrams, 8 hands-on labs, printable checklist, 80+ interview Q&A.</p>
+  <div class="card-meta">
+    <span class="card-tag">Exercises</span>
+    <span class="card-tag">Checklist</span>
+    <span class="card-tag">Diagrams</span>
+  </div>
+</a>
+
+</div>
 </div>
 
 ---

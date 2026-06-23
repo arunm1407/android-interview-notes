@@ -1,6 +1,6 @@
 ---
 title: "Extended Case Studies"
-weight: 3
+weight: 13
 ---
 
 

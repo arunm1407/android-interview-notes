@@ -1,6 +1,6 @@
 ---
 title: "Testing Patterns"
-weight: 6
+weight: 16
 ---
 
 # Testing Patterns for Android

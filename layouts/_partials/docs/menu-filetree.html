@@ -1,0 +1,126 @@
+{{ $bookSection := default "docs" .Site.Params.BookSection }}
+{{ if eq $bookSection "*" }}
+  {{ $bookSection = "/" }}
+{{ end }}
+
+{{ with .Site.GetPage $bookSection }}
+  {{ $currentPage := $ }}
+  {{ $allPages := where .Pages "Params.bookHidden" "ne" true }}
+
+  {{ $android := slice }}
+  {{ $compose := slice }}
+  {{ $dsa := slice }}
+  {{ $sap := slice }}
+
+  {{ range $allPages }}
+    {{ $slug := .File.ContentBaseName }}
+    {{ if eq .File.Dir "docs/tosca/" }}
+      {{ $sap = $sap | append . }}
+    {{ else if eq $slug "sap-automation" }}
+      {{ $sap = $sap | append . }}
+    {{ else if or (hasPrefix $slug "compose-") (eq $slug "compose-mastery") }}
+      {{ $compose = $compose | append . }}
+    {{ else if or (hasPrefix $slug "dsa-") (eq $slug "neetcode-crossref") (eq $slug "streak-board") }}
+      {{ $dsa = $dsa | append . }}
+    {{ else }}
+      {{ $android = $android | append . }}
+    {{ end }}
+  {{ end }}
+
+  <ul>
+    <li>
+      <a href="{{ site.Home.RelPermalink }}" class="{{ if eq $currentPage site.Home }}active{{ end }}">Home</a>
+    </li>
+  </ul>
+
+  {{ template "book-menu-group" (dict "id" "android" "title" "Android Interview" "pages" (sort $android "Weight") "currentPage" $currentPage) }}
+  {{ template "book-menu-group" (dict "id" "compose" "title" "Jetpack Compose" "pages" (sort $compose "Weight") "currentPage" $currentPage) }}
+  {{ template "book-menu-group" (dict "id" "dsa" "title" "DSA Prep" "pages" (sort $dsa "Weight") "currentPage" $currentPage) }}
+  {{ template "book-menu-group" (dict "id" "sap" "title" "SAP & Tosca" "pages" (sort $sap "Weight") "currentPage" $currentPage) }}
+{{ end }}
+
+{{ define "book-menu-group" }}
+  {{ $pages := .pages }}
+  {{ if gt (len $pages) 0 }}
+    {{ $open := false }}
+    {{ range $pages }}
+      {{ if or (eq $.currentPage .) (.IsAncestor $.currentPage) }}
+        {{ $open = true }}
+      {{ end }}
+    {{ end }}
+    <ul>
+      <li>
+        <input type="checkbox" id="group-{{ .id }}" class="toggle" {{ if $open }}checked{{ end }} />
+        <label for="group-{{ .id }}" class="flex book-menu-group-label">
+          <span class="book-menu-group-title">{{ .title }}</span>
+          <img src="{{ partial "docs/icon" "chevron-right" }}" class="book-icon" alt="{{ partial "docs/text/i18n" "Expand" }}" />
+        </label>
+        <ul>
+          {{ range $pages }}
+            {{ if .IsSection }}
+              <li {{- if .Params.BookFlatSection }} class="book-section-flat" {{ end -}}>
+                {{ template "book-page-link" (dict "Page" . "CurrentPage" $.currentPage) }}
+                {{ template "book-section-children" (dict "Section" . "CurrentPage" $.currentPage) }}
+              </li>
+            {{ else if and .IsPage .Content }}
+              <li>
+                {{ template "book-page-link" (dict "Page" . "CurrentPage" $.currentPage) }}
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </li>
+    </ul>
+  {{ end }}
+{{ end }}
+
+{{ define "book-section-children" }}
+  <ul>
+    {{ range (where .Section.Pages "Params.bookHidden" "ne" true) }}
+      {{ if .IsSection }}
+        <li {{- if .Params.BookFlatSection }} class="book-section-flat" {{ end -}}>
+          {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+          {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+        </li>
+      {{ else if and .IsPage .Content }}
+        <li>
+          {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+{{ end }}
+
+{{ define "book-page-link" }}
+  {{ $current := eq .CurrentPage .Page }}
+  {{ $ancestor := .Page.IsAncestor .CurrentPage }}
+
+  {{ if .Page.Params.BookCollapseSection }}
+    <input type="checkbox" id="section-{{ md5 .Page }}" class="toggle" {{ if or $current $ancestor }}checked{{ end }} />
+    <label for="section-{{ md5 .Page }}" class="flex">
+      <a {{ if .Page.Content }}href="{{ .Page.RelPermalink }}"{{ else }}role="button"{{ end }} class="{{ if $current }}active{{ end }}">
+        {{ template "book-icon-title" .Page -}}
+      </a>
+      <img src="{{ partial "docs/icon" "chevron-right" }}" class="book-icon" alt="{{ partial "docs/text/i18n" "Expand" }}" />
+    </label>
+  {{ else if .Page.Params.BookHref }}
+    <a href="{{ .Page.Params.BookHref }}" class="{{ if $current }}active{{ end }}" target="_blank" rel="noopener">
+      {{ template "book-icon-title" .Page -}}
+    </a>
+  {{ else if .Page.Content }}
+    <a href="{{ .Page.RelPermalink }}" class="{{ if $current }}active{{ end }}">
+      {{ template "book-icon-title" .Page -}}
+    </a>
+  {{ else }}
+    <a>
+      {{ template "book-icon-title" .Page -}}
+    </a>
+  {{ end }}
+{{ end }}
+
+{{ define "book-icon-title" }}
+{{- with .Page.Params.BookIcon -}}
+  <img src="{{ partial "docs/icon" . }}" class="book-icon" alt="{{ partial "docs/text/i18n" . }}" />
+{{- end -}}
+{{- partial "docs/title" .Page -}}
+{{ end }}

@@ -1,6 +1,6 @@
 ---
 title: "Caching & Sync Patterns"
-weight: 2
+weight: 11
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "SAP SD/MM & HANA Automation"
-weight: 8
+weight: 40
 ---
 
 # SAP SD / MM & HANA Automation — Interview Guide

@@ -1,6 +1,6 @@
 ---
 title: "Streak Board"
-weight: 99
+weight: 33
 ---
 
 # Prep Streak Board

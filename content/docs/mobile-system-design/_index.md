@@ -1,6 +1,6 @@
 ---
 title: "Mobile System Design"
-weight: 2
+weight: 12
 bookCollapseSection: true
 ---
 

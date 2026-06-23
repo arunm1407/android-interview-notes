@@ -1,6 +1,6 @@
 ---
 title: "Tosca Printable Checklist"
-weight: 2.1
+weight: 1
 ---
 
 # Tosca Mastery Checklist — Noob to Staff

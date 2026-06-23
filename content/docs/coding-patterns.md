@@ -1,6 +1,6 @@
 ---
 title: "Coding Patterns"
-weight: 5
+weight: 15
 ---
 
 

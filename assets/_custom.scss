@@ -95,6 +95,39 @@
   }
 }
 
+// ── Section category blocks (homepage) ──
+.section-category {
+  margin: 2.5rem 0 1rem;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--section-border);
+  }
+
+  .section-category-desc {
+    color: var(--gray-500, #6b7280);
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
+  }
+}
+
+.book-menu-group-label {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.35rem 0;
+}
+
+.book-menu-group-title {
+  flex: 1;
+}
+
+.markdown .book-menu-group-label {
+  margin-bottom: 0;
+}
+
 // ── Section cards grid ──
 .section-grid {
   display: grid;

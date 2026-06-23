@@ -1,6 +1,6 @@
 ---
 title: "Compose Rendering: How a List Screen Draws"
-weight: 8
+weight: 21
 ---
 
 # Compose Rendering: How a List Screen Actually Draws

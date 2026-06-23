@@ -1,6 +1,6 @@
 ---
 title: "DSA Printable Checklist"
-weight: 2.1
+weight: 31
 ---
 
 # DSA Printable Checklist — Google L4

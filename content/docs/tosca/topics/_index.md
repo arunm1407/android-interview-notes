@@ -1,6 +1,6 @@
 ---
-title: "Tosca Topics"
-weight: 1
+title: "Parts 1–11"
+weight: 3
 bookCollapseSection: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Behavioral Interview"
-weight: 7
+weight: 17
 ---
 
 # Behavioral Interview — Senior Android Engineer

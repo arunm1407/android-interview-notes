@@ -1,6 +1,6 @@
 ---
 title: "Tricentis Tosca Mastery"
-weight: 10
+weight: 41
 bookCollapseSection: true
 ---
 

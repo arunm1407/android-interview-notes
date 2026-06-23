@@ -1,6 +1,6 @@
 ---
 title: "Hands-on Exercises"
-weight: 3
+weight: 4
 bookCollapseSection: true
 ---
 

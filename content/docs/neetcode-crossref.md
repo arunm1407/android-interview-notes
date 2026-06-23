@@ -1,6 +1,6 @@
 ---
 title: "NeetCode 150 Cross-Reference"
-weight: 2.2
+weight: 32
 ---
 
 # NeetCode 150 ↔ DSA Roadmap Cross-Reference

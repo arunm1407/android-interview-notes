@@ -1,6 +1,6 @@
 ---
 title: "Compose Mastery"
-weight: 9
+weight: 22
 ---
 
 # Compose Mastery — The Complete Reference
