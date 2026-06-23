@@ -17,7 +17,7 @@ type: docs
 
 <div class="stats-row">
   <div class="stat-item">
-    <span class="stat-number">10</span>
+    <span class="stat-number">11</span>
     <span class="stat-label">Sections</span>
   </div>
   <div class="stat-item">
@@ -159,6 +159,18 @@ type: docs
     <span class="card-tag">STAR</span>
     <span class="card-tag">Leadership</span>
     <span class="card-tag">Stories</span>
+  </div>
+</a>
+
+<a class="section-card" href="{{< relref "/docs/sap-automation" >}}">
+  <span class="card-icon">🏭</span>
+  <div class="card-title">SAP SD/MM, HANA & Tosca</div>
+  <p class="card-desc">SAP SD & MM processes, S/4HANA automation, Tricentis Tosca framework design, and 42 interview Q&A.</p>
+  <div class="card-meta">
+    <span class="card-tag">SAP SD</span>
+    <span class="card-tag">SAP MM</span>
+    <span class="card-tag">HANA</span>
+    <span class="card-tag">Tosca</span>
   </div>
 </a>
 
