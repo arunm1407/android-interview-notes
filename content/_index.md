@@ -17,7 +17,7 @@ type: docs
 
 <div class="stats-row">
   <div class="stat-item">
-    <span class="stat-number">11</span>
+    <span class="stat-number">12</span>
     <span class="stat-label">Sections</span>
   </div>
   <div class="stat-item">
@@ -162,15 +162,27 @@ type: docs
   </div>
 </a>
 
+<a class="section-card" href="{{< relref "/docs/tosca" >}}">
+  <span class="card-icon">🎯</span>
+  <div class="card-title">Tricentis Tosca Mastery</div>
+  <p class="card-desc">11-part deep guide — noob to staff. 14 diagrams, 8 hands-on labs, printable checklist, 80+ interview Q&A.</p>
+  <div class="card-meta">
+    <span class="card-tag">Exercises</span>
+    <span class="card-tag">Checklist</span>
+    <span class="card-tag">Diagrams</span>
+    <span class="card-tag">CI/CD</span>
+  </div>
+</a>
+
 <a class="section-card" href="{{< relref "/docs/sap-automation" >}}">
   <span class="card-icon">🏭</span>
-  <div class="card-title">SAP SD/MM, HANA & Tosca</div>
-  <p class="card-desc">SAP SD & MM processes, S/4HANA automation, Tricentis Tosca framework design, and 42 interview Q&A.</p>
+  <div class="card-title">SAP SD/MM & HANA</div>
+  <p class="card-desc">SAP SD & MM processes, S/4HANA automation scenarios, cross-module integration flows, and domain interview Q&A.</p>
   <div class="card-meta">
     <span class="card-tag">SAP SD</span>
     <span class="card-tag">SAP MM</span>
     <span class="card-tag">HANA</span>
-    <span class="card-tag">Tosca</span>
+    <span class="card-tag">OTC/PTP</span>
   </div>
 </a>
 

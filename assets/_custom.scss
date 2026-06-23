@@ -478,6 +478,211 @@ html {
   list-style: none;
 }
 
+// ── Streak board ──
+.streak-board {
+  margin-top: 0.5rem;
+}
+
+.streak-setup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--section-border);
+  border-radius: 10px;
+}
+
+.streak-setup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.streak-live-badge,
+.streak-local-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-green);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-green) 12%, transparent);
+}
+
+.streak-local-badge {
+  color: var(--gray-500);
+  background: var(--gray-200);
+}
+
+.streak-import-label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+.streak-setup-alert {
+  background: var(--card-bg);
+  border: 1px solid var(--section-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  line-height: 1.6;
+
+  ol {
+    margin: 0.75rem 0;
+    padding-left: 1.25rem;
+  }
+}
+
+.streak-code {
+  background: var(--gray-100);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  font-size: 0.82rem;
+}
+
+.streak-setup select {
+  margin-left: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--section-border);
+  background: var(--body-background);
+  color: var(--body-font-color);
+}
+
+.streak-note {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  margin-bottom: 1.25rem;
+}
+
+.streak-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.streak-user-card {
+  background: var(--card-bg);
+  border: 1px solid var(--section-border);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  box-shadow: var(--card-shadow);
+
+  &.is-me {
+    border-color: var(--color-link);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-link) 25%, transparent);
+  }
+}
+
+.streak-user-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.05rem;
+
+    em {
+      font-style: normal;
+      font-size: 0.8rem;
+      color: var(--color-link);
+      font-weight: 600;
+    }
+  }
+}
+
+.streak-user-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.streak-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+
+  div {
+    text-align: center;
+    padding: 0.45rem 0.25rem;
+    border-radius: 8px;
+    background: var(--gray-100);
+  }
+
+  strong {
+    display: block;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    color: var(--color-link);
+  }
+
+  span {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--gray-500);
+  }
+}
+
+.streak-heatmap {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.streak-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.streak-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  background: var(--gray-200);
+
+  &.l1 { background: color-mix(in srgb, var(--user-color) 35%, var(--gray-200)); }
+  &.l2 { background: color-mix(in srgb, var(--user-color) 55%, var(--gray-200)); }
+  &.l3 { background: color-mix(in srgb, var(--user-color) 75%, var(--gray-200)); }
+  &.l4 { background: var(--user-color); }
+}
+
+.streak-help {
+  font-size: 0.88rem;
+  color: var(--gray-500);
+  border: 1px solid var(--section-border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  background: var(--gray-100);
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--body-font-color);
+  }
+
+  ol {
+    margin: 0.75rem 0 0;
+    padding-left: 1.2rem;
+  }
+}
+
+.streak-error {
+  color: #e53935;
+}
+
 // ── Responsive ──
 @media (max-width: 600px) {
   .hero h1 {

@@ -5,7 +5,7 @@ weight: 2.1
 
 # DSA Printable Checklist — Google L4
 
-> **Interactive tracking:** Check boxes on this page — progress saves automatically in your browser. [Export](#) from the progress bar to back up. Full problem links → [DSA Roadmap]({{< relref "/docs/dsa-roadmap" >}}). **80 ⭐ problems** — complete each twice (untimed, then timed).
+> **Interactive tracking:** Check boxes on this page — progress saves automatically in your browser. [Streak board]({{< relref "/docs/streak-board" >}}) for daily streaks with your study partner. Full problem links → [DSA Roadmap]({{< relref "/docs/dsa-roadmap" >}}). **80 ⭐ problems** — complete each twice (untimed, then timed).
 
 **Legend:** `[ ]` first pass (untimed) · `[ ]` second pass (timed 25 min) · `[ ]` explained complexity aloud
 

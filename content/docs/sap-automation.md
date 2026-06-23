@@ -1,14 +1,17 @@
 ---
-title: "SAP SD/MM, HANA & Tosca"
+title: "SAP SD/MM & HANA Automation"
 weight: 8
 ---
 
-# SAP SD / MM, HANA Automation & Tricentis Tosca — Interview Guide
+# SAP SD / MM & HANA Automation — Interview Guide
 
-> Basics to Advanced | Interview Questions + Answers
+> Basics to Advanced | Domain knowledge for SAP functional testers and automation engineers
 
 > [!TIP]
-> **Quick navigation:** [SAP SD](#sap-sd-sales--distribution) | [SAP MM](#sap-mm-materials-management) | [SAP HANA](#sap-hana-automation) | [Tosca](#tricentis-tosca) | [Integration Scenarios](#cross-module-integration-scenarios) | [Basic Q&A](#interview-questions-basic) | [Intermediate Q&A](#interview-questions-intermediate) | [Advanced Q&A](#interview-questions-advanced)
+> **Quick navigation:** [SAP SD](#sap-sd-sales--distribution) | [SAP MM](#sap-mm-materials-management) | [SAP HANA](#sap-hana-automation) | [Integration Scenarios](#cross-module-integration-scenarios) | [Basic Q&A](#interview-questions-basic) | [Intermediate Q&A](#interview-questions-intermediate) | [Advanced Q&A](#interview-questions-advanced)
+
+> [!NOTE]
+> **Tricentis Tosca** has its own complete guide — [Tosca Mastery]({{< relref "/docs/tosca" >}}) (11 parts, noob → staff, 80+ interview Q&A). This page covers **SAP domain knowledge** only.
 
 ---
 
@@ -142,76 +145,18 @@ WHERE AWREF = '<sales_order_number>';
 
 ---
 
-## Tricentis Tosca
+## Tricentis Tosca → See Dedicated Guide
 
-### Architecture Overview
-```
-Tosca Commander (IDE)
-    ├── Modules (object repository — SAP GUI, Web, API)
-    ├── TestCases (business flow steps)
-    ├── TestSheets (data-driven iterations)
-    ├── ExecutionLists (test suites for execution)
-    └── Requirements (traceability to ALM)
+Tosca content moved to a **standalone deep resource**:
 
-Tosca Engine / NEO / Cloud
-    └── Executes tests, returns results to Commander or CI/CD
-```
+**[Tosca Mastery — Complete Guide]({{< relref "/docs/tosca" >}})**
 
-### Core Building Blocks
-| Component | Purpose |
-|-----------|---------|
-| **Module** | Reusable object definitions (buttons, fields, tables) |
-| **TestStep** | Single action (click, input, verify, buffer) |
-| **TestCase** | Sequence of TestSteps forming a business scenario |
-| **TestSheet** | External data source for data-driven testing |
-| **ExecutionList** | Group of TestCases for batch execution |
-| **Recovery Scenario** | Handles unexpected popups/errors during SAP runs |
-| **Buffer** | Store runtime values (order number, delivery number) for reuse |
-
-### SAP Automation in Tosca
-1. **Scan SAP GUI:** Tosca identifies controls via SAP Scripting API
-2. **Engine settings:** Enable SAP Scripting on server (`rdisp/gui_auto_accept_server`) and client
-3. **Table handling:** Tosca table operations for line-item entry in VA01, ME21N
-4. **Dynamic values:** Buffer order number from status bar → use in VL01N, VF01
-5. **Recovery:** Handle "Express and Save" popups, system messages, credit blocks
-
-### TBox (Tosca Scripting)
-```vb
-' Buffer sales order number from SAP status bar
-{LogInfo("Order created: " + Buffer("OrderNumber"))}
-
-' Conditional check
-If Buffer("CreditBlock") = "Yes" Then
-    TestStep("Release Credit Block")
-End If
-
-' API test alongside GUI
-{APIRequest("POST", "/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrder", payload)}
-```
-
-### Tosca API Testing
-- **Service module:** Import Swagger/WSDL/OpenAPI definitions
-- **API Scan:** Auto-generate modules from service metadata
-- **Multi-engine:** Combine SAP GUI + API in one TestCase for faster validation
-- **Use case:** Create sales order via API, verify billing doc via GUI (or vice versa)
-
-### Best Practices
-- **Modular design:** One module per T-code screen, not per TestCase
-- **Naming convention:** `TC_SD_OTC_001_StandardOrder_MTO`
-- **No hardcoded data:** Use TestSheets with environment-specific config
-- **Wait mechanisms:** Use `{TBox Wait}` for SAP processing, avoid fixed delays
-- **Version control:** Export Tosca objects to Git via Tosca CI/CD integration
-- **Execution reporting:** Link ExecutionLists to HP ALM / Jira via Tosca integrations
-
-### Tosca vs WorkSoft Certify (Common Interview Comparison)
-| Feature | Tosca | WorkSoft Certify |
-|---------|-------|------------------|
-| Model-based | Yes (modules + reuse) | Process blocks |
-| SAP support | Native SAP engine | Strong SAP GUI support |
-| API testing | Built-in | Limited |
-| AI/self-healing | Tosca Vision AI | Less emphasis |
-| CI/CD | Jenkins, Azure DevOps | Available |
-| Learning curve | Moderate | Moderate |
+| Part | Topic |
+|------|-------|
+| 1–2 | Fundamentals, Modules, TestCases |
+| 3–6 | SAP GUI, API/Web, TBox, Data-driven |
+| 7–9 | Framework design, CI/CD, Vision AI |
+| 10–11 | Staff architecture, 80+ interview Q&A |
 
 ---
 
@@ -287,15 +232,12 @@ End If
 12. **How does S/4HANA differ from ECC for testers?**
     - Simplified tables, Fiori UI, CDS views, universal journal (ACDOCA), some T-codes deprecated.
 
-### Tosca
-13. **What is a Module in Tosca?**
-    - Object repository element representing a UI control or API endpoint. Reused across TestCases.
+### Tosca (see [full Q&A bank]({{< relref "/docs/tosca/topics/11-interview-questions" >}}))
+13. **What is a Module in Tosca?** — Object repository for UI controls or API endpoints; reused across TestCases.
 
-14. **What is the difference between TestCase and ExecutionList?**
-    - TestCase is a single scenario; ExecutionList is a collection of TestCases run together.
+14. **TestCase vs ExecutionList?** — TestCase = one scenario; ExecutionList = batch suite.
 
-15. **How do you handle dynamic data like order numbers in Tosca?**
-    - Buffer the value from SAP status bar or screen field, then reference `Buffer("OrderNumber")` in subsequent steps.
+15. **Dynamic order numbers?** — Buffer from status bar; reuse via `Buffer("OrderNumber")`.
 
 ---
 
@@ -340,21 +282,8 @@ End If
 27. **How do you automate Fiori apps vs SAP GUI?**
     - Fiori: Tosca web engine or API testing via OData services. GUI: Tosca SAP automation engine.
 
-### Tosca
-28. **How do you design a reusable Tosca framework for SAP SD regression?**
-    - Standard modules per T-code screen, business-level TestCases per process (OTC, returns), TestSheets for data, shared recovery scenarios, environment configs.
-
-29. **What are Recovery Scenarios and when do you use them?**
-    - Handle unexpected SAP popups (system messages, credit blocks, express save). Attached at Module or TestCase level.
-
-30. **How do you integrate Tosca with HP ALM / Jira?**
-    - Tosca requirements linked to ALM requirements. Execution results pushed back via Tosca CI or standard integration.
-
-31. **How do you do data-driven testing in Tosca?**
-    - Connect TestSheet (Excel/TDMS) to TestCase. Each row = one iteration with different customer, material, qty.
-
-32. **What is TBox and give an example use case.**
-    - Tosca scripting language. Use for conditional logic, log output, calculations, API calls. Example: check credit block flag and branch TestCase.
+### Tosca (see [Parts 6–8]({{< relref "/docs/tosca" >}}))
+28–32. Framework design, Recovery Scenarios, ALM/Jira integration, TestSheets, TBox — covered in depth in the [Tosca Mastery guide]({{< relref "/docs/tosca" >}}).
 
 ---
 
@@ -377,21 +306,8 @@ End If
 37. **Explain how you would test CDS-based Fiori analytical apps.**
     - Validate CDS view output via SE16H/SQL, compare with app UI totals, test filters and currency conversion.
 
-### Tosca Architecture
-38. **How do you set up Tosca in a CI/CD pipeline?**
-    - Export subsets to Git, trigger Tosca Execution via Jenkins/Azure DevOps CLI, publish results to ALM, send email on failure.
-
-39. **How do you maintain Tosca tests when SAP UI changes after an upgrade?**
-    - Re-scan modules, use Tosca Vision AI for resilient identification, version modules, run impact analysis on affected ExecutionLists.
-
-40. **Describe a hybrid automation approach: API + GUI in Tosca.**
-    - Create SO via OData API (fast setup), validate delivery and billing in GUI (complex screens), or reverse: GUI create, API verify status.
-
-41. **How do you manage test data across environments (DEV/QAS/PRD-like)?**
-    - TestSheets with environment columns, Tosca configs per environment, TDMS for SAP data masking/copy, avoid hardcoded org data.
-
-42. **What metrics do you report to stakeholders from automation?**
-    - Automation coverage %, regression cycle time reduction, defect leakage to UAT/prod, pass/fail trend per release, flaky test rate.
+### Tosca Architecture (see [Parts 8–10]({{< relref "/docs/tosca" >}}))
+38–42. CI/CD, upgrade maintenance, hybrid API+GUI, test data strategy, stakeholder metrics — full answers in [Tosca Mastery]({{< relref "/docs/tosca" >}}).
 
 ---
 
@@ -432,4 +348,4 @@ Use these to prepare 2-minute answers:
 
 ---
 
-> **Prep tip:** For each question, practice answering with (1) business context, (2) T-codes/steps, (3) validation points, and (4) how you automated or would automate it in Tosca.
+> **Prep tip:** For SAP questions, practice with (1) business context, (2) T-codes/steps, (3) validation points. For Tosca tool questions, use the [Tosca Interview Bank]({{< relref "/docs/tosca/topics/11-interview-questions" >}}).

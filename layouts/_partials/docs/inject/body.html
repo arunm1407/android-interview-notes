@@ -1,6 +1,18 @@
 {{- $path := .RelPermalink -}}
-{{- if or (in $path "dsa-checklist") (in $path "dsa-roadmap") (in $path "neetcode-crossref") -}}
+{{- if or (in $path "dsa-checklist") (in $path "dsa-roadmap") (in $path "neetcode-crossref") (in $path "tosca-checklist") -}}
+  {{- with resources.Get "streak-activity.js" | resources.Minify | resources.Fingerprint -}}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end -}}
   {{- with resources.Get "progress-tracker.js" | resources.Minify | resources.Fingerprint -}}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end -}}
+{{- end -}}
+{{- if in $path "streak-board" -}}
+  {{- with resources.Get "streak-activity.js" | resources.Minify | resources.Fingerprint -}}
+    <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end -}}
+  <script defer src="{{ "js/streak-users.js" | relURL }}"></script>
+  {{- with resources.Get "streak-board.js" | resources.Minify | resources.Fingerprint -}}
     <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
   {{- end -}}
 {{- end -}}

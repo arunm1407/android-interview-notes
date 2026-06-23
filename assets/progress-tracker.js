@@ -2,7 +2,7 @@
   'use strict';
 
   var STORAGE_PREFIX = 'android-interview-prep:';
-  var TRACKED = ['dsa-checklist', 'dsa-roadmap', 'neetcode-crossref'];
+  var TRACKED = ['dsa-checklist', 'dsa-roadmap', 'neetcode-crossref', 'tosca-checklist'];
 
   function isTrackedPage() {
     var path = window.location.pathname;
@@ -38,6 +38,9 @@
 
   function saveState(id, checked) {
     localStorage.setItem(storageKey(id), checked ? 'true' : 'false');
+    if (checked && window.PrepStreakActivity) {
+      window.PrepStreakActivity.noteProblemChecked(storageKey(id));
+    }
   }
 
   function allTrackIds() {
@@ -265,7 +268,7 @@
       '<span class="prep-progress-count">0 / 0</span>' +
       '</div>' +
       '<div class="prep-progress-bar" aria-hidden="true"><div class="prep-progress-fill"></div></div>' +
-      '<p class="prep-progress-note">Saved in this browser (localStorage). Use Export to back up.</p>' +
+      '<p class="prep-progress-note">Saved in this browser (localStorage). <a href="../streak-board/">Streak board</a> · Export to back up.</p>' +
       '<div class="prep-progress-actions">' +
       '<button type="button" class="prep-btn prep-btn-export">Export JSON</button>' +
       '<button type="button" class="prep-btn prep-btn-reset">Reset this page</button>' +
